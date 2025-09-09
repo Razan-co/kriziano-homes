@@ -1,0 +1,187 @@
+/* Background with elegant feel */
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+.login-background {
+  background: url('/assets/Kriziano Homes.png') no-repeat center center/cover;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Glassmorphism card */
+.login-card {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(15px);
+  padding: 40px 30px;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 400px;
+  color: #fff;
+  text-align: center;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+}
+
+/* Logo */
+
+.logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+ 
+}
+
+.logo img {
+  max-width: 150px; /* adjust size as needed */
+  height: auto;
+}
+
+
+/* Heading */
+.login-title {
+  font-size: 28px;
+  margin-bottom: 8px;
+}
+
+.login-subtext {
+  font-size: 14px;
+  margin-bottom: 25px;
+  color: #e0e0e0;
+}
+
+/* Inputs */
+.login-form input {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  border: none;
+  border-radius: 6px;
+  outline: none;
+  background: rgba(255, 255, 255, 0.25);
+  color: #fff;
+}
+
+.login-form input::placeholder {
+  color: #f0f0f0;
+}
+
+/* Remember + forgot password */
+.login-options {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 12px;
+  color: #ddd;
+  margin-bottom: 20px;
+}
+
+.login-options{
+  display: flex;
+}
+
+.lable{
+  display: flex;
+  text-decoration: none;
+}
+
+.login-options a {
+  color: #fff;
+  text-decoration: none;
+}
+
+/* Button */
+.login-btn {
+  background-color: #24453f;
+  color: white;
+  padding: 12px;
+  border: none;
+  width: 100%;
+  border-radius: 6px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  cursor: pointer;
+}
+.social-btn {
+  flex: 1;
+  background-color: #fff;
+  color: #333;
+  padding: 10px;
+  border-radius: 6px;
+  font-size: 22px;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.2s ease;
+}
+
+.social-btn:hover {
+  transform: scale(1.1);
+}
+
+.google { color: #db4437; }
+.fb { color: #1877f2; }
+.apple { color: #000; }
+
+/* Divider */
+.divider {
+  font-size: 13px;
+  color: #ccc;
+  margin: 15px 0;
+}
+
+/* Social buttons */
+.login-socials {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.social-btn {
+  flex: 1;
+  background-color: #fff;
+  color: #333;
+  padding: 10px;
+  border-radius: 6px;
+  font-size: 18px;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+}
+
+/* Signup */
+.signup-text {
+  font-size: 13px;
+  color: #eeeeee;
+}
+
+.signup-text a {
+  color: #000;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+/* Responsive */
+@media (max-width: 500px) {
+  .login-card {
+    padding: 30px 20px;
+  }
+
+  .login-title {
+    font-size: 24px;
+  }
+
+  .login-form input {
+    padding: 10px;
+  }
+
+  .login-btn {
+    padding: 10px;
+  }
+}

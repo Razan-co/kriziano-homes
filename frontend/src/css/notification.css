@@ -1,0 +1,150 @@
+.notification-wrapper {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  font-family: 'Segoe UI', sans-serif;
+  background: #fff;
+}
+
+.notification-header {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.search-icon {
+  width: 30px;
+  height: 40px;
+}
+
+.notification-title {
+  font-size: 30px;
+  font-weight: bold;
+  color: #0f4037;
+}
+
+.notification-card {
+  display: flex;
+  background-color: #f2f2f2;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 6px;
+  gap: 20px;
+  align-items: flex-start;
+}
+
+.full-width {
+  padding-left: 100px;
+  padding-right: 100px;
+  background-color: #ececec;
+}
+
+.notify-img {
+  width: 100px;
+  height: 100px;
+  border-radius: 4px;
+  object-fit: cover;
+}
+
+.notify-text {
+  flex: 1;
+}
+
+.notify-title {
+  font-size: 16px;
+  margin: 0;
+  font-weight: 600;
+}
+
+.notify-msg {
+  margin: 5px 0;
+  color: #444;
+  font-size: 14px;
+}
+
+.notify-label {
+  margin-top: 8px;
+  display: inline-block;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.notify-label.new {
+  color: green;
+}
+
+.notify-label.hot {
+  color: red;
+}
+
+/* ----------- Phones (max-width: 480px) ----------- */
+@media screen and (max-width: 480px) {
+  .notification-wrapper {
+    padding: 20px 12px;
+  }
+
+  .notification-header {
+    flex-direction: row;
+    gap: 10px;
+    text-align: center;
+  }
+
+  .search-icon {
+    width: 20px;
+    height: 30px;
+  }
+
+  .notification-title {
+    font-size: 20px;
+  }
+
+  .notification-card {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .notify-img {
+    width: 80%;
+    max-width: 260px;
+    height: auto;
+  }
+
+  .notify-title {
+    font-size: 15px;
+  }
+
+  .notify-msg {
+    font-size: 13px;
+  }
+
+  .full-width {
+    padding: 20px;
+  }
+}
+
+/* ----------- Laptops & Desktops (1025px and above) ----------- */
+@media screen and (min-width: 1025px) {
+  .notification-title {
+    font-size: 30px;
+  }
+
+  .notify-title {
+    font-size: 16px;
+  }
+
+  .notify-msg {
+    font-size: 14px;
+  }
+
+  .notify-img {
+    width: 100px;
+    height: 100px;
+  }
+
+  .notification-card {
+    flex-direction: row;
+    text-align: left;
+  }
+}

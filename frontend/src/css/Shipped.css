@@ -1,0 +1,44 @@
+.shipping-page {
+  padding: 40px;
+  font-family: 'Arial', sans-serif;
+  color: #2c3e50;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 22px;
+  font-weight: bold;
+  margin-bottom: 60px;
+}
+
+.back-icon {
+  font-size: 20px;
+  cursor: pointer;
+  color: #2c3e50;
+}
+
+.content {
+  text-align: center;
+  margin-top: 50px;
+}
+
+.illustration {
+  width: 250px;
+  max-width: 100%;
+  margin-bottom: 30px;
+}
+
+.content h3 {
+  font-size: 22px;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.content p {
+  font-size: 15px;
+  color: #555;
+  max-width: 400px;
+  margin: 0 auto;
+}

@@ -1,0 +1,141 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+  background-color: #f2f2f2;
+  height: 100%;
+  width: 100%;
+}
+
+.screen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px 16px;
+  min-height: 100vh;
+  box-sizing: border-box;
+  background-color: #f2f2f2;
+  position: relative;
+}
+
+/* Header aligned to top-left */
+.header {
+  position: absolute;
+  top: 20px;
+  left: 16px;
+  display: flex;
+  align-items: center;
+}
+
+.back-button {
+  font-size: 24px;
+  color: #0c3c3c;
+  background: none;
+  border: none;
+  margin-right: 8px;
+  cursor: pointer;
+}
+
+.title {
+  font-size: 20px;
+  font-weight: 600;
+  color: #0c3c3c;
+}
+
+
+.tabs {
+  margin-top: 80px; 
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  max-width: 400px;
+  margin-bottom: 20px;
+  
+}
+
+.tab {
+  font-weight: 600;
+  color: #888;
+  padding-bottom: 8px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.tab.active {
+  color: #0c3c3c;
+  border-bottom: 3px solid #0c3c3c;
+}
+
+.orders {
+  width: 100%;
+  max-width: 400px;
+}
+
+.order-card {
+  background-color: #fff;
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.order-header {
+  display: flex;
+  justify-content: space-between;
+  font-weight: 600;
+  font-size: 16px;
+  margin-bottom: 12px;
+}
+
+.order-date {
+  font-size: 13px;
+  color: #999;
+}
+
+.order-quantity {
+  font-size: 15px;
+  color: #444;
+  margin-bottom: 10px;
+}
+
+.order-quantity span {
+  font-weight: 600;
+}
+
+.order-footer {
+  font-size: 15px;
+  color: #444;
+  border-top: 1px solid #eee;
+  padding-top: 12px;
+}
+
+.order-amount {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 12px;
+  font-size: 16px;
+}
+
+.order-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.detail-button {
+  background-color: #0c3c3c;
+  color: #fff;
+  border: none;
+  padding: 8px 20px;
+  border-radius: 6px;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.order-status {
+  color: green;
+  font-weight: 600;
+  font-size: 15px;
+}

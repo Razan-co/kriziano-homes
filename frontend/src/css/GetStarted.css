@@ -1,0 +1,60 @@
+.get-started-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* Background image fills the screen behind everything */
+.background-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+}
+
+/* Line image appears above the background but below button */
+.line-image {
+  position: absolute;
+  bottom: -20px; /* Adjust based on where the arrow should appear */
+  left: 90px;    /* Adjust for horizontal position */
+  width: 400px;  /* Adjust as needed */
+  z-index: 2;
+}
+
+/* Get started button sits above everything */
+.cta-button {
+  position: absolute;
+  bottom: 65px;
+  left: 107px;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.button-circle {
+  background-color: #1d3a36;
+  color: white;
+  width: 150px;         /* Equal width and height */
+  height: 150px;
+  border-radius: 50%;   /* Makes it a circle */
+  font-size: 1.5rem;
+  font-weight: 500;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  line-height: 1.2;
+  flex-shrink: 0;
+}
+
+
+/* Placeholder for additional styling */
+.arrow {
+  width: 0;
+  height: 0;
+}
