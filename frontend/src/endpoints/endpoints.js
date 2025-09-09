@@ -3,7 +3,9 @@
 class ApiEndpoints {
 
 
-    static BASE_URL = 'http://localhost:3333/api/v1'
+    static BASE_URL = import.meta.env.MODE === "development"
+        ? "http://localhost:3333/api/v1"
+        : "https://your-backend-service.onrender.com/api/v1";
 
     // Static properties for endpoints
     //auth url
@@ -16,12 +18,12 @@ class ApiEndpoints {
     static GET_SINGLE_PRODUCT(product_id) {
         return `${this.BASE_URL}/product/get-product/${product_id}`
     }
-static GET_PRODUCTS(page, search , category) {
-  let url = `${this.BASE_URL}/product/get-products?page=${page || 1}`
-  if (search) url += `&search=${encodeURIComponent(search)}`
-  if (category) url += `&category=${encodeURIComponent(category)}`
-  return url
-}
+    static GET_PRODUCTS(page, search, category) {
+        let url = `${this.BASE_URL}/product/get-products?page=${page || 1}`
+        if (search) url += `&search=${encodeURIComponent(search)}`
+        if (category) url += `&category=${encodeURIComponent(category)}`
+        return url
+    }
     static ADD_WISHLIST = `${this.BASE_URL}/product/add-wishlist` //post
     static GET_CATEGORIES = `${this.BASE_URL}/product/get-categories`
     static GET_CART = `${this.BASE_URL}/product/get-cart`
