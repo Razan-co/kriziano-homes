@@ -3,9 +3,9 @@
 class ApiEndpoints {
 
 
-    static BASE_URL = import.meta.env.MODE === "development"
-        ? "http://localhost:3333/api/v1"
-        : "https://your-backend-service.onrender.com/api/v1";
+    static BASE_URL =  import.meta.env.MODE === "development"
+    ? "http://localhost:3333/api/v1"
+    : "/api/v1";
 
     // Static properties for endpoints
     //auth url
