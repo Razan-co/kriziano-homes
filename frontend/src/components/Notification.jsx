@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { FaChevronLeft,FaSearch } from 'react-icons/fa';
-import '../css/Notification.css';
+import '../css/notification.css';
 import { BellIcon } from '@heroicons/react/24/outline';
 
 const notifications = [
