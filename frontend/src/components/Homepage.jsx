@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { FaSearch } from "react-icons/fa";
-import "../css/HomePage.css";
+import "../css/Homepage.css";
 import { useCategoryStore } from "../store/categoryStore";
 
 // const categories = [
