@@ -105,7 +105,7 @@ console.log(selectedAddress)
             <div className="payment-box">
               <p className="label">Select Payment Mode:</p>
               <div className="radio-group vertical">
-                <label>
+                {/* <label>
                   <input
                     type="radio"
                     name="payment"
@@ -114,7 +114,7 @@ console.log(selectedAddress)
                     onChange={() => setPaymentMode('COD')}
                   />
                   Cash on Delivery (COD)
-                </label>
+                </label> */}
                 <label>
                   <input
                     type="radio"
