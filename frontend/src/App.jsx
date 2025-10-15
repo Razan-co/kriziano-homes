@@ -29,16 +29,22 @@ import ProductDetails from './components/ProductDetails';
 import Checkout from './components/Checkout';
 import { Toaster } from 'react-hot-toast';
 import { useAuthStore } from './store/authUser';
+import OrderSuccess from './components/OrderSuccess';
 
 
 function AppWrapper() {
   const location = useLocation();
   const noHeaderRoutes = ['/login', '/signup', '/profile', '/category',
     , '/address', '/notification'];
-const {getUser}=useAuthStore()
-useEffect(()=>{
-  getUser()  
-},[])
+ const { getUser, isCheckingAuth } = useAuthStore()
+
+  useEffect(() => {
+    getUser()
+  }, [getUser])
+
+  if (isCheckingAuth) {
+    return <div>Loading user session...</div>;
+  }
   return (
     <>
       {!noHeaderRoutes.includes(location.pathname) && <Header />}
@@ -70,6 +76,7 @@ useEffect(()=>{
         <Route path="/productdetails" element={<ProductDetails />} />
         <Route path="/product/details/:id" element={<ProductDetails />} />
         <Route path="/checkout" element={<Checkout />} />
+        <Route path="/order-success/:id" element={<OrderSuccess />} />
       </Routes>
       <Toaster />
     </>

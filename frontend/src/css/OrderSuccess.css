@@ -1,0 +1,84 @@
+.order-success-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: #f4f7fa;
+  font-family: "Poppins", sans-serif;
+  padding: 20px;
+}
+
+.success-card {
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  padding: 40px 30px;
+  text-align: center;
+  max-width: 400px;
+  width: 100%;
+  animation: fadeInUp 0.6s ease-in-out;
+}
+
+.success-icon {
+  color: #28a745;
+  font-size: 70px;
+  margin-bottom: 15px;
+  animation: pop 0.6s ease-in-out;
+}
+
+h2 {
+  margin-bottom: 10px;
+  color: #333;
+  font-size: 1.6rem;
+}
+
+.success-message {
+  color: #555;
+  font-size: 0.95rem;
+  margin-bottom: 20px;
+}
+
+.order-info {
+  background: #f9fafb;
+  border-radius: 10px;
+  padding: 15px;
+  text-align: left;
+  margin-bottom: 25px;
+}
+
+.order-info p {
+  margin: 5px 0;
+  color: #333;
+}
+
+.continue-btn {
+  background: #007bff;
+  color: white;
+  border: none;
+  outline: none;
+  padding: 10px 18px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+.continue-btn:hover {
+  background: #0056b3;
+}
+
+@keyframes pop {
+  0% { transform: scale(0); }
+  100% { transform: scale(1); }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

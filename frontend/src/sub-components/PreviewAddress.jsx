@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { useState } from "react";
 import { FaArrowLeft, FaArrowRight, FaPen, FaTrash } from 'react-icons/fa';
 
@@ -22,6 +23,10 @@ function PreviewAddress({
     district: '',
   });
 
+  useEffect(()=>{
+    if(!addresses)setShowForm(true)
+  },[addresses])
+console.log(selectedAddress)
   const handleFormSubmit = async (e) => {
     e.preventDefault();
     const { fullName, address, phone, house_no, city, pincode, country, district } = formData;

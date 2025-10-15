@@ -102,6 +102,29 @@ const removeCart = asyncError(async (req, res, next) => {
   res.status(200).json({ success: true, message: "Removed from cart" })
 })
 
+
+// update product  -- /product/:id
+const updateProduct = asyncError(async (req, res, next) => {
+  const product = await Product.findById(req.params.id)
+  if (!product)
+    throw new NotFoundError("Product not found")
+
+  product.name = req.body.name || product.name
+  product.description = req.body.description || product.description
+  product.price = req.body.price || product.price
+  product.stock = req.body.stock || product.stock
+  product.image_url = req.body.image_url || product.image_url
+
+  await product.save()
+
+  res.status(200).json({
+    success: true, message: "Product has been updated"
+  })
+
+})
+
+
+
 module.exports = {
   addProduct,
   getProducts,
@@ -113,4 +136,5 @@ module.exports = {
   getWishLists,
   removeWishList,
   removeCart,
+  updateProduct
 }

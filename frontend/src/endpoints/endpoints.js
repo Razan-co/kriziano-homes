@@ -3,9 +3,9 @@
 class ApiEndpoints {
 
 
-    static BASE_URL =  import.meta.env.MODE === "development"
-    ? "http://localhost:3333/api/v1"
-    : "/api/v1";
+    static BASE_URL = import.meta.env.MODE === "development"
+        ? "http://localhost:3333/api/v1"
+        : "/api/v1";
 
     // Static properties for endpoints
     //auth url
@@ -23,6 +23,9 @@ class ApiEndpoints {
         if (search) url += `&search=${encodeURIComponent(search)}`
         if (category) url += `&category=${encodeURIComponent(category)}`
         return url
+    }
+    static UPDATE_PRODUCT(id) {
+        return `${this.BASE_URL}/product/${id}`  //put
     }
     static ADD_WISHLIST = `${this.BASE_URL}/product/add-wishlist` //post
     static GET_CATEGORIES = `${this.BASE_URL}/product/get-categories`
@@ -43,6 +46,7 @@ class ApiEndpoints {
     static GET_ADDRESS = `${this.BASE_URL}/order/get-address`
     static CREATE_ORDER = `${this.BASE_URL}/order/create-order`
     static VERIFY_PAYMENT = `${this.BASE_URL}/order/verify-payment`
+    static GET_USER_ORDERS = `${this.BASE_URL}/order/get-orders`
 }
 
 export default ApiEndpoints

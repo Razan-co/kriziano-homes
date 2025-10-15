@@ -11,24 +11,34 @@ const Cart = () => {
     cartItems,
     selectedItems,
     toggleItem,
-    deleteItem,
     fetchCart,
     isLoading,
+    removeCart,
+    addToCart,
   } = useCartStore();
-  const {user}=useAuthStore()
+  const { user } = useAuthStore();
 
   const [showModal, setShowModal] = useState(false);
+  const navigate = useNavigate();
 
-  const {removeCart}=useCartStore()
-
+  // Rehydrate Zustand state from localStorage on mount
   useEffect(() => {
     fetchCart();
   }, [fetchCart]);
-  const navigate = useNavigate();
-  const selectedCount = selectedItems.filter(i => i !== null).length
+
+  // Count only selected, non-null items for UI
+  const selectedCount = selectedItems.length;
+
+  // Compute total for selected cart items (using consistent _id key)
   const totalAmount = cartItems
     .filter((item) => selectedItems.includes(item._id))
-    .reduce((acc, item) => acc + item.price, 0)
+    .reduce((acc, item) => acc + item.price, 0);
+
+  // Handler to add product (example)
+  // const handleAddToCart = (product) => {
+  //   addToCart(product);
+  //   navigate("/cart");
+  // };
 
   return (
     <div className="cart-container">
@@ -39,7 +49,7 @@ const Cart = () => {
         <h2>Cart</h2>
       </div>
 
-      {cartItems&&cartItems.length<1 ? (
+      {cartItems && cartItems.length < 1 ? (
         <p>Cart is empty...</p>
       ) : (
         <div className="cart-items">
@@ -48,7 +58,7 @@ const Cart = () => {
             return (
               <div
                 className={`cart-item ${isSelected ? "selected" : ""}`}
-                key={item?._id}
+                key={item._id}
               >
                 <img src={item.image_url} alt={item.name} className="item-image" />
                 <div className="item-details">
@@ -57,9 +67,7 @@ const Cart = () => {
                   <div className="item-pricing">
                     ₹{item.price}
                     {item.originalPrice && (
-                      <span className="item-original-price">
-                        ₹{item.originalPrice}
-                      </span>
+                      <span className="item-original-price">₹{item.originalPrice}</span>
                     )}
                   </div>
                 </div>
@@ -83,13 +91,15 @@ const Cart = () => {
         </div>
       )}
 
-   {cartItems&&cartItems.length>0 ? (<button className="continue-btn" onClick={() => setShowModal(true)}>
-        Continue
-      </button>):
-      ( <button className="continue-btn" onClick={() => navigate('/')}>
-        Add product to cart
-      </button>)
-      }
+      {cartItems && cartItems.length > 0 ? (
+        <button className="continue-btn" onClick={() => setShowModal(true)}>
+          Continue
+        </button>
+      ) : (
+        <button className="continue-btn" onClick={() => navigate("/")}>
+          Add product to cart
+        </button>
+      )}
 
       {/* ✅ Modal */}
       {showModal && (
@@ -106,7 +116,7 @@ const Cart = () => {
               <span className="checkout-count">({selectedCount} items)</span>
               <span className="checkout-price">₹ {totalAmount}</span>
             </p>
-            <Link to={user?"/checkout":"/login"} className="checkout-confirm-btn">
+            <Link to={user ? "/checkout" : "/login"} className="checkout-confirm-btn">
               Continue to Check Out
             </Link>
           </div>

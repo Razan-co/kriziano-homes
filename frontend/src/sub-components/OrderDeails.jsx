@@ -7,7 +7,7 @@ function OrderDetails({ loading, items, selectedAddress, handleRemoveItem ,setAc
   const [showPopup, setShowPopup] = useState(false);
   const [paymentMode, setPaymentMode] = useState('');
   const navigate = useNavigate();
-  const {createOrder,isLoading,order}=useOrderStore()
+  const {createOrder,isLoading,order,createdOrder}=useOrderStore()
 
   if (loading || !items) return <p className="loading-text">Loading order details...</p>;
 
@@ -62,7 +62,7 @@ console.log(selectedAddress)
               <button
                 className={`place-order-btn ${paymentMode === 'COD' ? 'active' : paymentMode === 'Other' ? 'redirect' : ''
                   }`}
-                onClick={selectedAddress?handlePlaceOrder:()=>setActiveTab("address")}
+                onClick={selectedAddress?handlePlaceOrder:()=>setActiveTab("preview")}
                 disabled={isLoading}
               >
                 {selectedAddress?(paymentMode === 'COD'
