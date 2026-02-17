@@ -1,0 +1,3 @@
+base url :http://localhost:333/api/v1/product
+
+create product - "/create-product"

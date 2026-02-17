@@ -18,6 +18,7 @@ const useOrderStore = create((set) => ({
     try {
       const { data } = await axios.get(Endpoints.GET_ADDRESS, { withCredentials: true });
       set({ addresses: data.addresses, isLoading: false });
+      console.log(data.addresses)
     } catch (error) {
       console.error(error.response?.data);
       set({ addresses: [], isLoading: false });

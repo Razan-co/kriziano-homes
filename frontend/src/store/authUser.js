@@ -103,9 +103,8 @@ export const useAuthStore = create((set) => ({
   logout: async () => {
     set({ isLoggingOut: true });
     try {
-      await axios.post(
-        '', // <-- Fill with /logout endpoint (optional)
-        {},
+      await axios.get(
+         ApiEndpoints.LOGOUT,
         { withCredentials: true }
       );
     } catch (_) {

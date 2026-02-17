@@ -1,5 +1,5 @@
 const express = require("express")
-const { createUser, login } = require("../controllers/authController")
+const { createUser, login, logout } = require("../controllers/authController")
 const { AuthValidation, validateRequest } = require("../validators/authValidators")
 const isAuthenticate = require("../middlewares/isAuthenticate")
 
@@ -14,5 +14,6 @@ route.get("/get-user", isAuthenticate, (req, res, next) => {
     user: req.user,
   })
 })
+route.get("/logout", logout)
 
 module.exports = route

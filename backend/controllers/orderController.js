@@ -6,6 +6,7 @@ const { AddressModel } = require("../models/model")
 const { AuthError, NotFoundError, ValidationError } = require("../utils/ErrorHandler")
 const Order = require("../models/orderModel")
 const ProductModel = require("../models/productModel")
+const Notification = require("../models/notificationModel")
 
 
 
@@ -138,6 +139,14 @@ const verifyPayment = asyncError(async (req, res, next) => {
 
   await order.save();
 
+  const notification =new Notification({
+    user:req.user.id,
+    type:"order",
+    content:"Your order has been confirmed",
+  });
+
+  notification.save();
+
   res.status(200).json({
     success: true,
     message: "Payment verified successfully",
@@ -218,9 +227,47 @@ const getOrders = asyncError(async (req, res, next) => {
 })
 
 
+//admin controller- admin will get all the new recent orders and can update the order status to shipped or delivered or cancelled
+// Route: GET /admin/orders
+// Route: PUT /admin/order/:id/status
+
+const getAllOrders = asyncError(async (req, res, next) => {
+  const orders = await Order.find().sort({ createdAt: -1 }).populate('user', 'name email').populate('items.product', 'name price');
+ //otal number of ordersin respone and total revenue from all orders
+  const totalOrders = orders.length;
+  const totalRevenue = orders.reduce((acc, order) => acc + order.total, 0);
+  res.status(200).json({
+    success: true,
+    orders,
+    totalOrders,
+    totalRevenue
+  })
+}   );
+
+const updateOrderStatus = asyncError(async (req, res, next) => {
+  const { id } = req.params;
+  const { status } = req.body;
+  const order = await Order.findById(id);
+  if (!order) return next(new NotFoundError("Order not found"));  
+  order.status = status;
+  await order.save();
+  const notification = new Notification({
+    user: order.user,
+    type: "order",
+    content: `Your order status has been updated to ${status}`,
+  });
+  await notification.save();
+  res.status(200).json({
+    success: true,
+    message: "Order status updated successfully",
+    order
+  })
+});
+
+
 module.exports = {
   createOrder,
   verifyPayment,
   addAddress,
-  getAddress, getOrders
+  getAddress, getOrders,getAllOrders,updateOrderStatus
 }

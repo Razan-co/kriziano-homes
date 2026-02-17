@@ -28,6 +28,17 @@ const productSchema = new mongoose.Schema({
     type: String,
     required: [true, "Provide products category"],
   },
+  reviews:[{
+    review:{
+      type:String,
+      required:true
+    },
+    user:{
+      type:mongoose.Schema.Types.ObjectId,
+      required:true,
+      ref:'user'
+    }
+  }]
 })
 
 const ProductModel = mongoose.model("product", productSchema)

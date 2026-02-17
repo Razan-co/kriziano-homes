@@ -23,13 +23,27 @@ const addProduct = asyncError(async (req, res, next) => {
 
 // Get products -- /product/get-products
 const getProducts = asyncError(async (req, res, next) => {
-  const productQuery = new ApiFeatures(Product.find(), req.query).search().filter().pagination(8)
-  const products = await productQuery.query
+  const productQuery = new ApiFeatures(Product.find(), req.query)
+    .search()
+    .filter()
+    .pagination(8);
+  
+  const products = await productQuery.query;
+  const filteredCount = await Product.countDocuments(productQuery.query._conditions); // Matches applied filters
+  
+  if (!products || products.length === 0) {
+    return next(new NotFoundError("Products not found"));
+  }
+
   res.status(200).json({
     success: true,
     products,
-  })
-})
+    filteredProductCount: filteredCount,  // Total matching filters (e.g., 25)
+    currentPageCount: products.length,     // Current page items (e.g., 8)
+    totalProducts: await Product.countDocuments()  // Full collection total (awaited separately)
+  });
+});
+
 
 // Get single product -- /get-product/:product_id
 const getSingleProduct = asyncError(async (req, res, next) => {

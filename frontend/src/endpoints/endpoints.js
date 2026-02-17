@@ -10,6 +10,7 @@ class ApiEndpoints {
     // Static properties for endpoints
     //auth url
     static LOGIN = `${this.BASE_URL}/auth/login/` //post
+    static LOGOUT = `${this.BASE_URL}/auth/logout/` //get
     static REGISTER = `${this.BASE_URL}/auth/create-user`//post
     static GET_USER = `${this.BASE_URL}/auth/get-user`
 

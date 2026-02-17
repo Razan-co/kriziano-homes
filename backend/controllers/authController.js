@@ -37,4 +37,15 @@ const login = asyncError(async (req, res, next) => {
   return new AuthHelper().sendCookie(res, user)
 })
 
-module.exports = {  createUser,  login}
+const logout = asyncError(async (req, res, next) => {
+  res.clearCookie("homes_auth")
+  res.status(200).json({
+    success: true,
+    message: "Logged out successfully",
+  })
+})
+
+
+
+
+module.exports = {  createUser,  login,logout}
