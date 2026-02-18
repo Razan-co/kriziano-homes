@@ -4,6 +4,9 @@ dotenv.config()
 
 const connectDb = async () => {
   const dbUrl = process.env.DB_URL
+  // const dbUrl = process.env.DB_URL
+  
+
   if (!dbUrl) {
     throw new Error("DB_URL environment variable is not defined")
   }
